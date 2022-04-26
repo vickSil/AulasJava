@@ -14,7 +14,14 @@ public class PageBean implements Serializable {
 	 private int n1;
 	 private int n2;
 	 private int n3;
+	 private int resultado;
 	 
+	public int getResultado() {
+		return resultado;
+	}
+	public void setResultado(int resultado) {
+		this.resultado = resultado;
+	}
 	public int getN1() {
 		return n1;
 	}
@@ -33,16 +40,17 @@ public class PageBean implements Serializable {
 	public void setN3(int n3) {
 		this.n3 = n3;
 	}
-	 
-//	 @Inject
-//	 private Flash flash;
-//	 
-//	 public String processar() {
-//		 
-//		 flash.put("nomeDoUsuario", nome);
-//		 
-//		 return "result?faces-redirect=true";
-//	 }
+	 	 @Inject
+	 private Flash flash;
+
+		 public String processar() {
+		 
+			 resultado = n1 + n2 + n3;
+			 
+		 flash.put("resultado", resultado);
+		 
+		 return "result?faces-redirect=true";
+	 }
 	 
 
 
